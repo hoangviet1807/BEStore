@@ -2,8 +2,8 @@ import { ProductModel } from "../models/ProductModel.js";
 
 export const getProduct = async (req, res) => {
   try {
-    const posts = await ProductModel.find();
-    res.status(200).json(posts);
+    const products = await ProductModel.find();
+    res.status(200).json(products);
   } catch (err) {
     res.status(500).json({
       error: err,
@@ -14,7 +14,6 @@ export const getProduct = async (req, res) => {
 export const createProduct = async (req, res) => {
   try {
     const newProduct = req.body;
-    console.log(newProduct);
     const product = new ProductModel(newProduct);
     await product.save();
 
@@ -51,6 +50,17 @@ export const getDetailProduct = async (req, res) => {
   try {
     const product = await ProductModel.findById(req.params.id);
     res.status(200).json(product);
+  } catch (error) {
+    res.status(404).send(error.Message);
+  }
+};
+
+export const getDataAFollowingType = async (req, res) => {
+  try {
+    const products = await ProductModel.find({
+      category: req.params.category.toUpperCase(),
+    });
+    res.status(200).json(products);
   } catch (error) {
     res.status(404).send(error.Message);
   }
