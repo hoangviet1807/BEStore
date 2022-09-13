@@ -60,8 +60,18 @@ export const getDataAFollowingType = async (req, res) => {
     const products = await ProductModel.find({
       category: req.params.category.toUpperCase(),
     });
-    res.status(200).json(products);
+    res.status(200).json(["name"]);
   } catch (error) {
     res.status(404).send(error.Message);
+  }
+};
+
+export const searchProduct = async (req, res) => {
+  try {
+    const products = await ProductModel.find({ $text: { $search: "TEE" } });
+    console.log("product", products);
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(402).send(error.Message);
   }
 };
