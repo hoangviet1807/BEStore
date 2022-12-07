@@ -11,19 +11,20 @@ const schema = new mongoose.Schema(
       required: true,
     },
     infoProduct: {
-      type: Array,
-      required: true,
+      type: Object,
     },
-    attachment: String,
+    attachment: {
+      type: Object,
+    },
     imageDetail: {
-      type: Array,
+      type: Object,
     },
     size: {
-      type: Array,
+      type: Object,
       required: true,
     },
     colors: {
-      type: Array,
+      type: Object,
       required: true,
     },
     category: {
