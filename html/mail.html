@@ -1,0 +1,104 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Thank you for your purchase!</h2>
+    <span>Hi , we received your order. We will notify you when it has been packed and sent to you.</span>
+    {% for info in products %}
+    <table style="width: 500px; margin: 0 auto;">
+        <tr style="width: 100%; margin-bottom: 20px;">
+            <td>
+                <img src="https://ci5.googleusercontent.com/proxy/kQ_PW5xsRLgmdGzlMvcQYAuPXwbTski3HXCLRGJONe8QkciRHuDJ2aTmlQXB_PMCNBZ646FetMUyX_5WGDHk3aSH6oq3EQl0_2mIljUsXOwIkJyi3_Xc3uG-kkO7mWH2Qcb8XgVE2A_AppEsSu1gKxW3luIH0p8b=s0-d-e1-ft#https://cdn.shopify.com/s/files/1/0456/5070/6581/products/M5740CD1-1_compact_cropped.jpg?v=1652188570"
+                    align="left" width="60" height="60"
+                    style="margin-right:15px;border-radius:8px;border:1px solid #e5e5e5" class="CToWUd" data-bit="iit">
+            </td>
+            <td>
+                <span style="font-size:16px;font-weight:600;line-height:1.4;color:#555">
+                    {{info.name}} / {{info.size}}
+                </span>
+                <br>
+            </td>
+            <td>
+                <p style="color:#555;line-height:150%;font-size:16px;font-weight:600;margin:0 0 0 15px" align="right">
+                    {{info.price}}₫
+                </p>
+            </td>
+        </tr>
+
+        <table style="width: 500px;
+            border-spacing: 0;
+            border-collapse: collapse;
+            margin-top: 15px;
+            border-top-width: 1px;
+            border-top-color: #e5e5e5;
+            border-top-style: solid;
+            margin: 20px auto">
+            <tbody>
+                <tr>
+                    <td style="width: 30%;"></td>
+                    <td>
+                        <table style="width: 100%;">
+                            <tbody>
+                                <tr style="text-align: right;">
+                                    <td class="td-left">Discount</td>
+                                    <td>0₫</td>
+                                </tr>
+                                <tr style="text-align: right;">
+                                    <td class="td-left">Subtotal</td>
+                                    <td>{{info.price}}₫</td>
+                                </tr>
+                                <tr style="text-align: right;">
+                                    <td class="td-left">Tax</td>
+                                    <td>0₫</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table style="width: 100%;border-spacing: 0;
+                            border-collapse: collapse;
+                            margin-top: 20px;
+                            border-top-width: 2px;
+                            border-top-color: #e5e5e5;
+                            border-top-style: solid;">
+                            <tbody>
+                                <tr style="text-align: right;">
+                                    <td class="td-left" style="padding: 20px 0 0 ">Total</td>
+                                    <td style="padding: 20px 0 0; font-size: 24px;">{{info.price}}VND</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        </tbody>
+    </table>
+    {% endfor %}
+</body>
+
+</html>
+<style>
+    span {
+        color: gray;
+    }
+
+    td {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4;
+        color: #555;
+    }
+
+    .td-left {
+        width: 20%;
+    }
+</style>
+{% endblock %}

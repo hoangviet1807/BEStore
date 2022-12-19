@@ -3,12 +3,14 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import product from "./routers/product.js";
 import user from "./routers/users.js"
+import order from "./routers/orders.js"
 import mongoose from "mongoose";
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 8000;
 
 const uri =
   "mongodb+srv://viet:wZasfBLAXSy07nl4@cluster0.ut0hp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
@@ -26,6 +28,8 @@ app.use("/", cors());
 
 app.use("/product", product);
 app.use("/user", user)
+app.use("/order", order)
+
 app.use(express.static(__dirname + '/uploads'));
 
 mongoose
